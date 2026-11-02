@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0b1010;
+  --paper: #f5f2ec;
+  --stone: #ebe6de;
+  --accent: #1fc996;
+  --accent-soft: #5ee0b5;
+  --signal: #3b82f6;
+  --muted: #5c6562;
+  --line: rgba(11, 16, 16, 0.1);
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-stone: var(--stone);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-signal: var(--signal);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 50%, white);
+  color: var(--ink);
+}
+
+.font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+.section-pad {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+}
+
+.section-kicker {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--ink) 45%, transparent);
+}
+
+.section-title {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.65rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.section-copy {
+  margin: 0;
+  max-width: 36rem;
+  font-size: clamp(0.95rem, 2vw, 1.0625rem);
+  line-height: 1.7;
+  color: color-mix(in oklab, var(--ink) 68%, transparent);
+}
+
+.text-gradient {
+  background: linear-gradient(
+    120deg,
+    var(--accent) 0%,
+    #8fdfff 45%,
+    var(--signal) 75%,
+    var(--accent) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 10s ease infinite;
+}
+
+.hero-atmosphere {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 45% at 15% 75%, rgba(31, 201, 150, 0.1), transparent 55%),
+    linear-gradient(165deg, #060908 0%, #0d1412 50%, #0a100e 100%);
+}
+
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 22rem at 70% 30%,
+    rgba(31, 201, 150, 0.12),
+    transparent 55%
+  );
+  background-repeat: no-repeat;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.4;
+  background-image:
+    linear-gradient(rgba(245, 242, 236, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 242, 236, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 50% 50% at 20% 75%, black, transparent);
+  animation: grid-drift 30s linear infinite;
+}
+
+.break-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn svg {
+  flex-shrink: 0;
+  color: inherit;
+  stroke: currentColor;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0b1010 !important;
+}
+
+.btn-primary:hover {
+  background: var(--accent-soft);
+}
+
+.btn-dark {
+  background: #0b1010;
+  color: #f5f2ec !important;
+}
+
+.btn-dark:hover {
+  background: #1a2220;
+}
+
+.btn-ghost-light {
+  background: transparent;
+  border-color: rgba(245, 242, 236, 0.28);
+  color: #f5f2ec !important;
+}
+
+.btn-ghost-light:hover {
+  border-color: rgba(245, 242, 236, 0.55);
+  background: rgba(245, 242, 236, 0.06);
+}
+
+.btn-ghost-dark {
+  background: var(--paper);
+  border-color: rgba(11, 16, 16, 0.2);
+  color: #0b1010 !important;
+}
+
+.btn-ghost-dark:hover {
+  border-color: rgba(11, 16, 16, 0.4);
+}
+
+.btn-nav {
+  min-height: 2.25rem;
+  padding: 0.5rem 1rem;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+@keyframes grid-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(56px);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-spotlight {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .text-gradient,
+  .hero-grid {
+    animation: none;
+  }
+}
