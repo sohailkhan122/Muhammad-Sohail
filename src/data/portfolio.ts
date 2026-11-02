@@ -18,11 +18,11 @@ export const profile = {
 export const experiences = [
   {
     company: "Computing Yard",
-    role: "MERN Stack Developer",
+    role: "Full Stack Developer",
     period: "Present",
     type: "Full-time",
     points: [
-      "Building and shipping production web applications with the MERN stack.",
+      "Building and shipping production web applications as a Full Stack Developer.",
       "Developing secure authentication and role-based access with AWS Cognito.",
       "Delivering responsive dashboards for Admin, Dispatcher, Driver, People, and Customer roles.",
     ],
